@@ -19,7 +19,7 @@ interface FileDao {
     @Query("SELECT * FROM files WHERE category = :category")
     fun getAllByCategory(category: PasswordType): Flow<List<FileEntity>>
 
-    @Query("SELECT DISTINCT file_name FROM files WHERE file_name IS NOT NULL")
+    @Query("SELECT file_name FROM files WHERE file_name IS NOT NULL")
     fun getFolders(): Flow<List<String>>
 
     @Query("SELECT * FROM files WHERE file_name = :fileName")
